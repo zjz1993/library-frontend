@@ -47,7 +47,8 @@ export async function apiGetUserInfo(): TApi<TUserInfo> {
     data: {
       uid: 230080,
       username: 'zhaojunzhe',
-      avatar: ''
+      avatar: '',
+      role: 1
     }
   };
 }
