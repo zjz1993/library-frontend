@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+  .all-center {
+  @apply flex items-center justify-center;
+  }
+}
+
+// 滚动条样式
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px
+}
+
+::-webkit-scrollbar-track {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  //background-color: #CFD3D6;
+  background-color: transparent;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#0d232e40, endColorstr=#0d232e40)
+}
+
+//::-webkit-scrollbar-track:hover {
+//  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#0d232e40, endColorstr=#0d232e40)
+//}
+
+::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #CFD3D6;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#1a232e40, endColorstr=#1a232e40)
+}
+
+::-webkit-scrollbar-thumb:hover {
+  //width: 8px;
+  //height: 8px;
+  //padding: 1px;
+  border: 2px solid transparent;
+  background-color: #A3A7AD;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4d232e40, endColorstr=#4d232e40)
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent
+}
+
+// 虚拟滚动条
+.ant-tree-list-scrollbar {
+  width: 4px !important;
+
+  .ant-tree-list-scrollbar-thumb {
+    background: #CFD3D6 !important;
+  }
+
+  &:hover {
+    width: 6px !important;
+
+    .ant-tree-list-scrollbar-thumb {
+      background: #A3A7AD !important;
+    }
+  }
+}
+
+// 兼容Firefox滚动条样式
+* {
+  scrollbar-color: #CFD3D6 transparent; /* thumb and track color */
+  scrollbar-width: thin;
+  scrollbar-base-color: transparent;
+  scrollbar-track-color: transparent;
+  scrollbar-arrow-color: white;
+  scrollbar-face-color: #CFD3D6;
+  scrollbar-highlight-color: transparent;
+}

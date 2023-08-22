@@ -1,0 +1,44 @@
+.page_wrapper {
+  width: 100vw;
+  min-height: 100vh;
+
+  .page {
+  @apply flex items-start;
+    height: calc(100vh - 48px);
+
+    .hidden_sidebar.page_menu {
+      width: 80px;
+    }
+
+    &_menu {
+      width: 250px;
+      height: 100%;
+      box-sizing: border-box;
+      transition: all .3s;
+      overflow: auto;
+      position: relative;
+
+      .resize_bar {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        background: red;
+        width: 3px;
+        cursor: col-resize;
+      }
+    }
+
+    &_content {
+      flex: 1;
+      height: 100%;
+      background: #EEF2F6;
+      padding: 24px;
+      box-sizing: border-box;
+    }
+  }
+
+  .page_header {
+    height: 48px;
+  }
+}
