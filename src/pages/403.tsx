@@ -5,9 +5,9 @@ const NotFound = () => {
   const navigate = useNavigate();
   return (
     <Result
-      status="404"
-      title="404"
-      subTitle="Sorry, 页面找不到"
+      status="403"
+      title="403"
+      subTitle="您没有权限访问该页面"
       extra={
         <Button
           type="primary"

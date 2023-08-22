@@ -1,9 +1,9 @@
-import React, { Suspense } from 'react'
-import styles from './index.module.less'
-import { Outlet } from 'react-router-dom'
-import { Spin } from 'antd'
-import BaseHeader from '@/layout/baseHeader.tsx'
-import SideBarMenu from '@/layout/sideBarMenu.tsx'
+import React, { Suspense } from 'react';
+import styles from './index.module.less';
+import { Outlet } from 'react-router-dom';
+import { Spin } from 'antd';
+import BaseHeader from '@/layout/baseHeader.tsx';
+import SideBarMenu from '@/layout/sideBarMenu.tsx';
 
 const BaseLayout: React.FC = () => {
   return (
@@ -18,6 +18,6 @@ const BaseLayout: React.FC = () => {
         </div>
       </div>
     </div>
-  )
-}
-export default BaseLayout
+  );
+};
+export default BaseLayout;

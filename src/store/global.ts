@@ -1,14 +1,13 @@
-import { create } from 'zustand'
+import { create } from 'zustand';
+import { TUserInfo } from '@/types/userInfo.ts';
 
-interface GlobalState {
-  sideBarCollapse: boolean
-  toggleSideBarCollapse: () => void
+export interface IGlobalState {
+  updateUserInfo: (userInfo?: TUserInfo) => void;
+  userInfo?: TUserInfo;
 }
 
-const useGlobalStore = create<GlobalState>((set) => ({
-  sideBarCollapse: false,
-  toggleSideBarCollapse: () => {
-    return set((state) => ({ sideBarCollapse: !state.sideBarCollapse }))
-  }
-}))
-export default useGlobalStore
+const useGlobalStore = create<IGlobalState>((set) => ({
+  userInfo: undefined,
+  updateUserInfo: (userInfo?: TUserInfo) => set(() => ({ userInfo }))
+}));
+export default useGlobalStore;

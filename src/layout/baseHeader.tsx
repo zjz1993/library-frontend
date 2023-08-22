@@ -1,24 +1,25 @@
-import React from 'react'
-import styles from './index.module.less'
-import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
-import { Button } from 'antd'
-import useGlobalStore from '@/store/global.ts'
+import React from 'react';
+import styles from './index.module.less';
+import { Button } from 'antd';
+import LoginModal from '@/components/LoginModal/index.tsx';
+import useGlobalStore, { IGlobalState } from '@/store/global.ts';
+import UserLogin from '@/layout/userLogin.tsx';
 
 const BaseHeader: React.FC = () => {
-  const collapsed = useGlobalStore((state) => state.sideBarCollapse)
-  const toggleSideBarCollapse = useGlobalStore(
-    (state) => state.toggleSideBarCollapse
-  )
+  const userInfo = useGlobalStore((state: IGlobalState) => state.userInfo);
   return (
     <div className={styles.page_header}>
-      <Button
-        type="primary"
-        onClick={toggleSideBarCollapse}
-        style={{ marginBottom: 16 }}
-      >
-        {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-      </Button>
+      <div>图书网</div>
+      <div>
+        {userInfo ? (
+          <UserLogin userInfo={userInfo} />
+        ) : (
+          <LoginModal>
+            <Button type="primary">登录</Button>
+          </LoginModal>
+        )}
+      </div>
     </div>
-  )
-}
-export default BaseHeader
+  );
+};
+export default BaseHeader;
