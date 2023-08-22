@@ -29,10 +29,7 @@
         "src/assets/*"
       ]
     },
-    "baseUrl": ".",
-    "types": [
-      "vite-plugin-svgr/client"
-    ]
+    "baseUrl": "."
   },
   "include": [
     "src"
