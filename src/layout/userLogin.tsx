@@ -41,7 +41,7 @@ const UserLogin: React.FC<IUserLoginProps> = (props) => {
       key: '2',
       label: '管理后台',
       onClick: () => {
-        navigate('/admin/library/create');
+        navigate('/admin/books/list');
       }
     },
     {

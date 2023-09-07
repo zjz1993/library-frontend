@@ -3,6 +3,7 @@ import { IBaseComponent } from '@/types/baseComponent.ts';
 import { Form, Input, Modal } from 'antd';
 import useGlobalStore from '@/store/global.ts';
 import { ERole } from '@/enum/Role.ts';
+import { setCookie } from '@/utils/cookie.ts';
 
 interface ILoginModalProps extends IBaseComponent {
   children: React.ReactNode;
@@ -43,6 +44,7 @@ const LoginModal: React.FC<ILoginModalProps> = (props) => {
             role:
               data.username === 'zhaojunzhe' ? ERole.superAdmin : ERole.normal
           });
+          setCookie('user_token', 'abcdqwer');
         }}
       >
         <div className="text-center text-2xl">登录&注册</div>

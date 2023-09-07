@@ -63,3 +63,41 @@ export async function apiGetBookById(id: number): TApi<TBookDetail> {
     }
   };
 }
+
+export async function apiAdminGetBooksList(): TApi<{
+  records: TBook[];
+  total: number;
+}> {
+  return {
+    code: 200,
+    message: 'success',
+    data: { records: [{ id: 0, name: '书籍', desc: '一些介绍' }], total: 1 }
+  };
+}
+
+// 管理侧 添加书籍
+export async function apiAdminAddBook(): TApi<null> {
+  return {
+    code: 200,
+    message: 'success',
+    data: null
+  };
+}
+
+// 管理侧 编辑书籍
+export async function apiAdminEditBook(): TApi<null> {
+  return {
+    code: 200,
+    message: 'success',
+    data: null
+  };
+}
+
+// 管理侧 删除书籍
+export async function apiAdminDeleteBook(): TApi<null> {
+  return {
+    code: 200,
+    message: 'success',
+    data: null
+  };
+}

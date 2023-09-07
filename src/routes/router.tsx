@@ -30,12 +30,12 @@ const router = createBrowserRouter([
         ),
         children: [
           {
-            path: 'library/create',
-            Component: lazy(() => import('@/pages/Admin/Library/create.tsx'))
+            path: 'books/list',
+            Component: lazy(() => import('@/pages/Admin/Book/index.tsx'))
           },
           {
-            path: 'library/edit',
-            Component: lazy(() => import('@/pages/Admin/Library/edit.tsx'))
+            path: 'category/list',
+            Component: lazy(() => import('@/pages/Admin/Category/index.tsx'))
           }
         ]
       }

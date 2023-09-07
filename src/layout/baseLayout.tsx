@@ -5,7 +5,9 @@ import { Spin } from 'antd';
 import BaseHeader from '@/layout/baseHeader.tsx';
 import SideBarMenu from '@/layout/sideBarMenu.tsx';
 
-const BaseLayout: React.FC = () => {
+const BaseLayout: React.FC = (props) => {
+  console.log('BaseLayout props');
+  console.log(props);
   return (
     <div className={styles.page_wrapper}>
       <BaseHeader />

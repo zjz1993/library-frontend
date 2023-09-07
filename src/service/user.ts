@@ -41,6 +41,7 @@ export async function apiRegister(params: TLoginDto): TApi<unknown> {
 }
 
 export async function apiGetUserInfo(): TApi<TUserInfo> {
+  // await delay();
   return {
     code: 200,
     message: 'success',
