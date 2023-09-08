@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import router from '@/routes/router.tsx';
 import { getCookie } from '@/utils/cookie.ts';
@@ -8,7 +8,7 @@ import useGlobalStore, { IGlobalState } from '@/store/global.ts';
 import { Feedback } from '.yalc/@digit-fe/digit-component-v5/dist/index';
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const userInfo = useGlobalStore((state: IGlobalState) => state.userInfo);
   const updateUserInfo = useGlobalStore((state) => state.updateUserInfo);
   const user_token = getCookie('user_token');
@@ -17,7 +17,7 @@ function App() {
     console.log('App.tsx 加载用户信息');
     if (res.code === 200) {
       const { data } = res;
-      setLoading(false);
+      // setLoading(false);
       updateUserInfo({
         ...data,
         uid: 230080,
@@ -29,7 +29,7 @@ function App() {
     if (user_token) {
       console.log('执行判断');
       if (!userInfo) {
-        setLoading(true);
+        // setLoading(true);
         getUserInfo();
       }
     }

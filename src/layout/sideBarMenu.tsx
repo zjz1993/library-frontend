@@ -80,7 +80,7 @@ const SideBarMenu: React.FC<ISideBarMenu> = (props) => {
           mode="inline"
           items={renderMenu()}
           onClick={(item) => {
-            const path = item.item.props.path;
+            const path = (item as any).item.props.path;
             console.log(item.item);
             if (path) {
               navigate(path);
