@@ -2,16 +2,19 @@ import React, { useState } from 'react';
 import { useRequest } from 'ahooks';
 import { apiGetBooksList } from '@/service/books.ts';
 import { TBook } from '@/types/book.ts';
-import { Col, Row, Spin } from 'antd';
+import { Col, Empty, Row, Spin } from 'antd';
 import BookItem from '@/components/BookItem/index.tsx';
+import useBookStore, { IBookState } from '@/store/book.ts';
 
 const IndexPage: React.FC = () => {
+  const categoryId = useBookStore((state: IBookState) => state.categoryId);
   const [books, setBooks] = useState<TBook[]>([]);
   const { loading } = useRequest(
     () => {
-      return apiGetBooksList();
+      return apiGetBooksList(categoryId);
     },
     {
+      refreshDeps: [categoryId],
       onSuccess: (res) => {
         setBooks(res.data.records);
       }
@@ -22,15 +25,21 @@ const IndexPage: React.FC = () => {
       {loading ? (
         <Spin />
       ) : (
-        <Row gutter={[16, 16]}>
-          {books.map((book) => {
-            return (
-              <Col key={book.id} span={6}>
-                <BookItem book={book} />
-              </Col>
-            );
-          })}
-        </Row>
+        <React.Fragment>
+          {books.length === 0 ? (
+            <Empty />
+          ) : (
+            <Row gutter={[16, 16]}>
+              {books.map((book) => {
+                return (
+                  <Col key={book.id} span={6}>
+                    <BookItem book={book} />
+                  </Col>
+                );
+              })}
+            </Row>
+          )}
+        </React.Fragment>
       )}
     </div>
   );

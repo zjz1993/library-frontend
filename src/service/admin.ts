@@ -1,19 +1,21 @@
 import { TApi } from '@/types/api.ts';
-import { TCategoryProps } from '@/types/category.ts';
+import { TApiCategoryProps } from '@/types/category.ts';
 
-export async function apiGetAdminCategoryList(): TApi<TCategoryProps[]> {
+export async function apiGetAdminCategoryList(): TApi<TApiCategoryProps[]> {
   return {
     code: 200,
     message: 'success',
     data: [
       {
-        label: '书籍管理',
-        key: '1',
+        title: '书籍管理',
+        id: 1,
+        parentId: null,
         path: '/admin/books/list'
       },
       {
-        label: '标签管理',
-        key: '2',
+        title: '标签管理',
+        id: 2,
+        parentId: null,
         path: '/admin/category/list'
       }
     ]

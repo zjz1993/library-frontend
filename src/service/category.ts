@@ -1,37 +1,7 @@
 import { TApi } from '@/types/api.ts';
-import { TCategoryProps } from '@/types/category.ts';
+import { TApiCategoryProps } from '@/types/category.ts';
+import { requestGet } from '@/utils/request.ts';
 
-export async function apiGetCategoryList(): TApi<TCategoryProps[]> {
-  return {
-    code: 200,
-    message: 'success',
-    data: [
-      {
-        label: '历史',
-        key: '1',
-        children: [
-          {
-            label: '中国历史',
-            key: '2',
-            children: [
-              {
-                label: '明',
-                key: '4'
-              }
-            ]
-          },
-          {
-            label: '外国历史',
-            key: '3',
-            children: [
-              {
-                label: '欧洲历史',
-                key: '5'
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  };
+export async function apiGetCategoryList(): TApi<TApiCategoryProps[]> {
+  return requestGet('/api/category/categorys');
 }

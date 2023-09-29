@@ -1,9 +1,0 @@
-{
-  "version": "v1",
-  "packages": {
-    "@digit-fe/digit-component-v5": {
-      "signature": "0c5a392bc132bcabbdc754b75e5a19b1",
-      "file": true
-    }
-  }
-}

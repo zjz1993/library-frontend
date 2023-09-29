@@ -14,7 +14,8 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "tsc && vite build",
+    "start:test": "vite --mode test",
+    "build": "tsc && vite build --mode test",
     "serve": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui",
@@ -23,10 +24,12 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.5",
-    "@digit-fe/digit-component-v5": "file:.yalc/@digit-fe/digit-component-v5",
     "ahooks": "^3.7.8",
     "antd": "^5.8.4",
+    "axios": "^1.5.0",
     "classnames": "^2.3.2",
+    "cross-env": "^7.0.3",
+    "dayjs": "^1.11.9",
     "html2canvas": "^1.4.1",
     "js-cookie": "^3.0.5",
     "jspdf": "^2.5.1",

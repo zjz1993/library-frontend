@@ -4,6 +4,7 @@ import { IBaseComponent } from '@/types/baseComponent.ts';
 import { TBook } from '@/types/book.ts';
 import { Image } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import dayjs from 'dayjs';
 
 interface IBookItemProps extends IBaseComponent {
   book: TBook;
@@ -11,7 +12,7 @@ interface IBookItemProps extends IBaseComponent {
 
 const BookItem: React.FC<IBookItemProps> = (props) => {
   const {
-    book: { id, cover, name, desc }
+    book: { id, cover, name, description, createTime }
   } = props;
   const navigate = useNavigate();
   return (
@@ -27,7 +28,8 @@ const BookItem: React.FC<IBookItemProps> = (props) => {
         className={styles.cover}
       />
       <div className={styles.title}>{name}</div>
-      <div>{desc}</div>
+      <div>{description}</div>
+      <div>添加日期：{dayjs(createTime).format('YYYY-MM-DD HH:mm:ss')}</div>
     </div>
   );
 };

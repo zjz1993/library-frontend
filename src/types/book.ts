@@ -1,8 +1,9 @@
 export type TBook = {
   id: number;
   name: string;
-  desc: string;
+  description: string;
   cover?: string;
+  createTime: string;
 };
 export type TBookDetail = TBook & {
   author: string; // 作者

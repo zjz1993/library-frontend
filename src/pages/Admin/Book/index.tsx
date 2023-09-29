@@ -22,8 +22,8 @@ const LibraryIndex: React.FC = () => {
     },
     {
       title: '描述',
-      dataIndex: 'desc',
-      key: 'desc'
+      dataIndex: 'description',
+      key: 'description'
     },
     {
       title: 'Action',
