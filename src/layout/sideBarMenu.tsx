@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
 import { MailOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Menu, Spin } from 'antd';
 import cx from 'classnames';
 import { IBaseComponent } from '@/types/baseComponent.ts';
 import useGlobalStore, { IGlobalState } from '@/store/global.ts';
 import { TApiCategoryProps, TCategoryProps } from '@/types/category.ts';
-import { useRequest, useUpdateEffect } from 'ahooks';
-import { apiGetCategoryList } from '@/service/category.ts';
 import { ERole } from '@/enum/Role.ts';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { apiGetAdminCategoryList } from '@/service/admin.ts';
 import useBookStore from '@/store/book.ts';
 
 type ISideBarMenu = IBaseComponent;
@@ -51,26 +47,26 @@ const SideBarMenu: React.FC<ISideBarMenu> = (props) => {
       return [getItem('书籍种类列表', 'sub1', <MailOutlined />, data)];
     }
   };
-  const { runAsync } = useRequest(
-    (isAdmin?: boolean) => {
-      if (isAdmin) {
-        return apiGetAdminCategoryList();
-      }
-      return apiGetCategoryList();
-    },
-    {
-      // manual: true,
-      onSuccess: (res) => {
-        console.log('执行加载menu');
-        console.log(res);
-        if (res.code === 200) {
-          console.log(res.data);
-          const treeArray = arrayToTree(res.data);
-          setData(convertArray(treeArray));
-        }
-      }
-    }
-  );
+  //const { runAsync } = useRequest(
+  //  (isAdmin?: boolean) => {
+  //    if (isAdmin) {
+  //      return apiGetAdminCategoryList();
+  //    }
+  //    return apiGetCategoryList();
+  //  },
+  //  {
+  //    // manual: true,
+  //    onSuccess: (res) => {
+  //      console.log('执行加载menu');
+  //      console.log(res);
+  //      if (res.code === 200) {
+  //        console.log(res.data);
+  //        const treeArray = arrayToTree(res.data);
+  //        setData(convertArray(treeArray));
+  //      }
+  //    }
+  //  }
+  //);
   const convertArray = (array: TApiCategoryProps[]): TCategoryProps[] => {
     return array.map((item) => {
       const newItem: TCategoryProps = {
@@ -100,41 +96,23 @@ const SideBarMenu: React.FC<ISideBarMenu> = (props) => {
     }
     return array.filter((item) => !item.parentId);
   };
-  useUpdateEffect(() => {
-    if (
-      userInfo?.role === ERole.superAdmin &&
-      location.pathname.indexOf('/admin') > -1
-    ) {
-      runAsync(true);
-    } else {
-      runAsync(false);
-    }
-  }, [runAsync, location, userInfo]);
+  //useUpdateEffect(() => {
+  //  if (
+  //    userInfo?.role === ERole.superAdmin &&
+  //    location.pathname.indexOf('/admin') > -1
+  //  ) {
+  //    runAsync(true);
+  //  } else {
+  //    runAsync(false);
+  //  }
+  //}, [runAsync, location, userInfo]);
   //useMount(() => {
   //  runAsync(false);
   //});
 
   return (
     <div className={cx(className)} style={style}>
-      {data ? (
-        <Menu
-          mode="inline"
-          items={renderMenu()}
-          onClick={(item) => {
-            const path = (item as any).item.props.path;
-            const id = (item as any).item.props.id;
-            console.log(item);
-            console.log(item.item);
-            if (path) {
-              navigate(path);
-            } else {
-              updateCategoryId(id);
-            }
-          }}
-        />
-      ) : (
-        <Spin />
-      )}
+      123
     </div>
   );
 };

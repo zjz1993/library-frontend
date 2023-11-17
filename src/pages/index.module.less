@@ -1,21 +1,105 @@
-.pdf_page {
-  width: 1200px;
-  margin: 0 auto;
+.title_wrapper {
+  height: 24px;
   display: flex;
-  flex-direction: column;
-  border: 1px solid red;
-  overflow: auto;
-  height: 100vh;
+  align-items: center;
+}
 
-  .pdf_footer_content {
-    span {
-      font-weight: 400;
-      font-size: 14px;
-      font-family: -apple-system, 'system-ui', 'Segoe UI', Roboto,
-      'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
-      'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-    }
+.pdf_page {
+  //:global {
+  //  .ant-table-wrapper .ant-table-tbody > tr > td {
+  //    border-bottom: 1px solid red !important;
+  //  }
+  //}
 
-    text-align: right;
+  .tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 2px 5px;
+    background: #0082fc;
+    margin-bottom: 10px;
   }
+
+  .pdf_footer {
+    padding: 0 10px 10px 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .pdf_footer_content {
+      span {
+        font-weight: 400;
+        font-size: 14px;
+        font-family: -apple-system, 'system-ui', 'Segoe UI', Roboto,
+        'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+        'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+      }
+
+      text-align: right;
+    }
+  }
+}
+
+.test_page {
+  display: flex;
+
+  &_left {
+    width: 200px;
+    background: red;
+    height: 200px;
+    margin-right: 40px;
+    position: relative;
+
+    &_btn {
+      position: absolute;
+      right: -25px;
+      top: 50%;
+      background: green;
+      cursor: pointer;
+    }
+  }
+
+  &_right {
+    flex: 1;
+    background: darkorange;
+  }
+}
+
+.fadeEnter {
+  opacity: 0;
+}
+
+/* 入场动画过程 */
+
+.enterActive {
+  transform: translateX(0);
+  transition: all .3s;
+}
+
+/* 入场动画结束 */
+
+.enterDone {
+  transform: translateX(0);
+}
+
+/* 离场动画开始 */
+
+.exit {
+  opacity: 1;
+}
+
+/* 离场动画过程 */
+
+.exitActive {
+  transform: translateX(-100%);
+  transition: all 0.4s ease-in;
+}
+
+/* 离场动画结束 */
+
+.exitDone {
+  transform: translateX(-100%);
+  position: absolute;
 }

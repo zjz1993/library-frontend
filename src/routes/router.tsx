@@ -1,8 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import BaseLayout from '@/layout/baseLayout.tsx';
 import { lazy } from 'react';
-import RequireAdmin from '@/wrapper/RequiredLogin.tsx';
-import AdminIndex from '@/pages/Admin/index.tsx';
 
 const router = createBrowserRouter(
   [
@@ -15,31 +13,43 @@ const router = createBrowserRouter(
           Component: lazy(() => import('@/pages/Index.tsx'))
         },
         {
-          path: '/books/:id',
-          Component: lazy(() => import('@/pages/Detail.tsx'))
+          path: '/simple',
+          Component: lazy(() => import('@/pages/SimplePDF.tsx'))
         },
         {
-          path: '/403',
-          Component: lazy(() => import('@/pages/403.tsx'))
+          path: '/span',
+          Component: lazy(() => import('@/pages/ColSpanTable.tsx'))
         },
         {
-          path: '/admin',
-          element: (
-            <RequireAdmin>
-              <AdminIndex />
-            </RequireAdmin>
-          ),
-          children: [
-            {
-              path: 'books/list',
-              Component: lazy(() => import('@/pages/Admin/Book/index.tsx'))
-            },
-            {
-              path: 'category/list',
-              Component: lazy(() => import('@/pages/Admin/Category/index.tsx'))
-            }
-          ]
+          path: '/test',
+          Component: lazy(() => import('@/pages/Test.tsx'))
         }
+        //{
+        //  path: '/books/:id',
+        //  Component: lazy(() => import('@/pages/Detail.tsx'))
+        //},
+        //{
+        //  path: '/403',
+        //  Component: lazy(() => import('@/pages/403.tsx'))
+        //},
+        //{
+        //  path: '/admin',
+        //  element: (
+        //    <RequireAdmin>
+        //      <AdminIndex />
+        //    </RequireAdmin>
+        //  ),
+        //  children: [
+        //    {
+        //      path: 'books/list',
+        //      Component: lazy(() => import('@/pages/Admin/Book/index.tsx'))
+        //    },
+        //    {
+        //      path: 'category/list',
+        //      Component: lazy(() => import('@/pages/Admin/Category/index.tsx'))
+        //    }
+        //  ]
+        //}
       ]
     },
     {
